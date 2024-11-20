@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Ejemplares</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Editorial</th>
+                    </tr>
+                        
+                </thead>
+                
+                <tbody th:each="libro : ${libros}">
+                    <tr>
+                        <th scope="row" th:text="${libro.isbn}"></th>
+                        <td th:text="${libro.titulo}"></td>
+                        <td th:text="${libro.ejemplares}"></td>
+                        <td th:text="${libro.autor.nombre}"></td>
+                        <td th:text="${libro.editorial.nombre}"></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

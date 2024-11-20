@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>MODIFICAR USUARIO</div>
+        
+        <form th:action="@{/perfil/__${usuario.id}__}" method="POST" enctype="multipart/form-data" >
+            <input hidden th:value="${id}" name="id">
+            
+            <div>
+                <h3>Cargar Datos Usuario</h3>
+            </div>
+            
+            <div>
+                <input type="text" class="form-control" name="nombre" th:value="${usuario.nombre}">
+            </div>   
+            
+            <div>
+                <input type="email" class="form-control" name="email" th:value="${usuario.email}">
+            </div>  
+            
+            <div>
+                <input type="file" class="form-control" name="archivo">
+            </div>  
+            
+            <div>
+                <input type="password" class="form-control" name="password" placeholder="password">
+            </div>  
+            
+            <div>
+                <input type="password" class="form-control" name="password2" placeholder="repetir contraseña">
+            </div>  
+                
+            <button type="submit">Actualizar</button>
+            
+        </form>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Id del Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Foto de perfil</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Cambiar Rol</th>
+                    <th scope="col">Modificar</th>
+                </tr>
+            </thead>
+            <tbody th:each="usuario: ${usuarios}">
+                <tr>
+                    <th scope="row" th:text="${usuario.id}"></th>
+                    <td th:text="${usuario.nombre}"></td>
+                    <td>
+                        <a><img th:if="${usuario.imagen != null}" th:src="@{/imagen/perfil/__${usuario.id}__}"></a>
+                    </td>
+                    
+                    <td th:text="${usuario.rol}"></td>
+                    <td>
+                        <a th:href="@{/admin/modificarRol/__${usuario.id}__}">Cambiar</a>
+                    </td>
+                    
+                    <td>
+                        <a th:href="@{/usuario/modificar/__${usuario.id}__}">actualizar usuario</a>
+                    </td>
+                 
+                </tr>
+                
+            </tbody>
+        </table>
+    </body>
+</html>
